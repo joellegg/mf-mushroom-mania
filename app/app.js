@@ -10,19 +10,14 @@ angular.module('shroomApp', ['ngRoute'])
     mushroomFactory
       .getShroomed()
       .then((value) => {
-        $scope.mushrooms = value;
-        //$scope.description = value.description;
-        console.log('value.data', value)
+        $scope.mushrooms = value.data.mushrooms;
+        // console.log($scope.mushrooms)
       })
   })
   .factory('mushroomFactory', ($http) => {
     return {
       getShroomed: () => {
-        return $http
-          .get('list.json')
-          .then((value) => {
-            console.log('value.data', value.data)
-          })
+        return $http.get('list.json')
       }
     }
   })

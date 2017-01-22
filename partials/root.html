@@ -1,3 +1,15 @@
 <div class="container">
   <h1>Shrooms</h1>
+  <div class="row">
+    <h3 class="col-sm-2">Mushroom</h3>
+    <h3 class="col-sm-2">Edible?</h3>
+    <h3 class="col-sm-8">Description</h3>
+  </div>
+  <div class="row" ng-repeat="mushroom in mushrooms">
+    <div ng-repeat="(key, value) in mushroom">
+      <h3 class="col-sm-2">{{key}}</h3>
+      <h3 class="col-sm-2">{{value.edible}}</h3>
+      <h3 class="col-sm-8">{{value.description}}</h3>
+    </div>
+  </div>
 </div>
