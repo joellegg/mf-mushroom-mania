@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="search">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">Go!</button>
         </span>
@@ -14,33 +14,33 @@
     <div class="col-sm-3 col-xs-6">
       <div class="input-group">
         <span class="input-group-addon">
-          <input type="radio" aria-label="...">
+          <input type="radio" name="edibility" ng-model="edible" value="false" aria-label="...">
         </span>
-        <label for="radio-1" class="form-control">Edible</label>
+        <label for="radio-1" class="form-control">Poisonous</label>
       </div><!-- /input-group -->
     </div><!-- /.col-sm-3 -->
 
     <div class="col-sm-3 col-xs-6">
       <div class="input-group">
         <span class="input-group-addon">
-          <input type="radio" aria-label="...">
+          <input type="radio" name="edibility" ng-model="edible" value="true" aria-label="...">
         </span>
-        <label for="radio-1" class="form-control">Inedible</label>
+        <label for="radio-1" class="form-control">Nonpoisonous</label>
       </div><!-- /input-group -->
     </div><!-- /.col-sm-3 -->
   </div><!-- /.row -->
   <br>
 
   <div class="row">
-    <h3 class="col-sm-2">Mushroom</h3>
-    <h3 class="col-sm-2">Edible?</h3>
-    <h3 class="col-sm-8">Description</h3>
+    <h4 class="col-sm-2">Mushroom</h4>
+    <h4 class="col-sm-2">Edible?</h4>
+    <h4 class="col-sm-8">Description</h4>
   </div>
-  <div class="row" ng-repeat="mushroom in mushrooms">
+  <div class="row" ng-repeat="mushroom in mushrooms | filter:search | filter:edible">
     <div ng-repeat="(key, value) in mushroom">
-      <h3 class="col-sm-2">{{key}}</h3>
-      <h3 class="col-sm-2">{{value.edible}}</h3>
-      <h3 class="col-sm-8">{{value.description}}</h3>
+      <h4 class="col-sm-2">{{key}}</h4>
+      <h4 class="col-sm-2">{{value.edible}}</h4>
+      <h4 class="col-sm-8">{{value.description}}</h4>
     </div>
   </div>
 </div>

@@ -11,7 +11,6 @@ angular.module('shroomApp', ['ngRoute'])
       .getShroomed()
       .then((value) => {
         $scope.mushrooms = value.data.mushrooms;
-        // console.log($scope.mushrooms)
       })
   })
   .factory('mushroomFactory', ($http) => {
